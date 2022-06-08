@@ -8,10 +8,12 @@ import NextButton from '../../Components/NextButton';
 import { Colors, Images } from '../../Themes/';
 import { normalize } from '../../Utils/Common';
 import I18n from '../../I18n/I18n';
+import SettingsActions, { changeLanguage } from '../../Redux/SettingsRedux';
 import MessageActions from '../../Redux/MessageRedux';
 
 // Adjust to the appropriate next screen
-const nextScreen = 'ScreenLanguageSelection';
+// const nextScreen = 'ScreenLanguageSelection';
+const nextScreen = 'ScreenCoachSelection';
 
 class ScreenStartWithLogo extends Component {
   componentDidMount() {
@@ -21,11 +23,13 @@ class ScreenStartWithLogo extends Component {
   render() {
     const { sendPlatformIntention } = this.props;
     const { navigate } = this.props.navigation;
+    const { changeLanguage } = this.props;
+    const { sendLanguageIntention } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <View style={styles.logoContainer}>
-            <Image style={styles.logoImage} source={Images.appLogo} />
+            <Image style={styles.logoImage} source={Images.customLogo} />
           </View>
           <View style={styles.poweredByContainer}>
             <Image
@@ -35,12 +39,15 @@ class ScreenStartWithLogo extends Component {
           </View>
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>{I18n.t('Onboarding.title')}</Text>
+          {/* <Text style={styles.title}>{I18n.t('Onboarding.title')}</Text> */}
+          {/* <Text style={styles.subtitle}>{I18n.t('Onboarding.subtitle')}</Text> */}
           <Text style={styles.subtitle}>{I18n.t('Onboarding.subtitle')}</Text>
           <NextButton
             text={I18n.t('Onboarding.next')}
             onPress={() => {
               sendPlatformIntention(Platform.OS);
+              changeLanguage('en-GB');
+              sendLanguageIntention('en-GB');
               navigate(nextScreen);
             }}
           />
@@ -53,6 +60,10 @@ class ScreenStartWithLogo extends Component {
 const mapDispatchToProps = (dispatch) => ({
   sendPlatformIntention: (platform) =>
     dispatch(MessageActions.sendIntention(null, 'platform', platform)),
+  changeLanguage: (newLang) =>
+    dispatch(SettingsActions.changeLanguage(newLang)),
+  sendLanguageIntention: (language) =>
+    dispatch(MessageActions.sendIntention(null, 'language', language)),
 });
 
 export default connect(null, mapDispatchToProps)(ScreenStartWithLogo);

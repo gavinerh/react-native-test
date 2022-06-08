@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import NextButton from '../../Components/NextButton';
 import I18n from '../../I18n/I18n';
-import SettingsActions from '../../Redux/SettingsRedux';
+import SettingsActions, { changeLanguage } from '../../Redux/SettingsRedux';
 import MessageActions from '../../Redux/MessageRedux';
 import { Colors } from '../../Themes/';
 
@@ -19,8 +19,8 @@ class ScreenLanguageSelection extends Component {
     const { changeLanguage } = this.props;
     const { sendLanguageIntention } = this.props;
     const { navigate } = this.props.navigation;
-
     return (
+      
       <View style={Styles.container}>
         <View style={Styles.containerMargin} />
         <View style={Styles.buttonContainer}>
@@ -52,10 +52,10 @@ class ScreenLanguageSelection extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  changeLanguage: (newLang) =>
-    dispatch(SettingsActions.changeLanguage(newLang)),
-  sendLanguageIntention: (language) =>
-    dispatch(MessageActions.sendIntention(null, 'language', language)),
+  // changeLanguage: (newLang) =>
+  //   dispatch(SettingsActions.changeLanguage(newLang)),
+  // sendLanguageIntention: (language) =>
+  //   dispatch(MessageActions.sendIntention(null, 'language', language)),
 });
 
 export default connect(null, mapDispatchToProps)(ScreenLanguageSelection);

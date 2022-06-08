@@ -3,7 +3,8 @@
 
 const brand = {
   colors: {
-    primary: '#2c3e50',
+    // primary: '#2c3e50',
+    primary: 'pink',
     primaryText: '#fff',
     buttonBackground: '#3498db',
     buttonText: '#fff',
@@ -19,6 +20,7 @@ const brand = {
   },
   images: {
     logo: require('../Images/app_logo.png'),
+    customLogo: require('../Images/cover.jpg'),
     poweredBy: require('../Images/powered_by.png'),
     chatBackground: require('../Images/Chat/bg.png'),
   },

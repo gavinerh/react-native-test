@@ -198,6 +198,7 @@ class Chat extends Component {
     return (
       <View style={Styles.chatContainer}>
         <RepeatingBackgroundImage source={Images.chatBg}>
+          {/* line below is the navigation bar */}
           {this.renderNavigationbar(this.props)}
           <GiftedChat
             ref={(ref) => {

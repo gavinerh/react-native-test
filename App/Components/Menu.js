@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { ListItem } from 'react-native-elements';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
@@ -23,6 +23,8 @@ const decapitalizeFirstLetter = function (string) {
 class Menu extends Component {
   constructor(props) {
     super(props);
+    // need to create a counter property and save it in redux
+    this.counter = 0;
     this.screens = {
       chat: {
         name: 'Chat',
@@ -104,6 +106,17 @@ class Menu extends Component {
               type="ionicon"
               style={styles.actionButtonIcon}
             />
+          </View>
+        ),
+        subtitle: '',
+        modal: false,
+      },
+      counter: {
+        name: 'Counter',
+        label: 'Menu.Counter',
+        leftIcon: (
+          <View>
+            <Text>Counter: </Text>
           </View>
         ),
         subtitle: '',
@@ -280,7 +293,9 @@ class Menu extends Component {
           <View containerStyle={styles.listContainer}>
             {this.getList().map(this.renderListItem.bind(this))}
           </View>
+          
         </View>
+        {/* add the counter view item here */}
         <View
           style={{
             alignItems: 'center',

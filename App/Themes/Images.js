@@ -3,6 +3,7 @@ import Brand from './Brand';
 // Use thrifty, these images are held in memory (require)!
 const images = {
   appLogo: Brand.images.logo,
+  customLogo: Brand.images.customLogo,
   poweredByLogo: Brand.images.poweredBy,
   coaches: [
     require('../Images/Coaches/coach_male.png'),
