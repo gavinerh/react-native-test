@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
 import { connect } from 'react-redux';
 
@@ -26,9 +26,11 @@ class ScreenWelcomeByCoach extends Component {
     redirect('MainNavigation');
   };
 
+
   render() {
     return (
       <View style={Styles.container}>
+        <StatusBar backgroundColor={Styles.imageContainer.backgroundColor} />
         <View style={Styles.imageContainer}>
           <View style={Styles.circle}>
             <Image

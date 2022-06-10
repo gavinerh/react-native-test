@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
-import { Text, View, Image, StyleSheet, Platform } from 'react-native';
+import { Text, View, Image, StyleSheet, Platform, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -27,6 +27,7 @@ class ScreenStartWithLogo extends Component {
     const { sendLanguageIntention } = this.props;
     return (
       <View style={styles.container}>
+        <StatusBar hidden={false} backgroundColor={styles.imageContainer.backgroundColor} barStyle='dark-content'/>
         <View style={styles.imageContainer}>
           <View style={styles.logoContainer}>
             <Image style={styles.logoImage} source={Images.customLogo} />

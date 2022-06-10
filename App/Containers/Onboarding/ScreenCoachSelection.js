@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native';
 import { ifIphoneX } from 'react-native-iphone-x-helper';
 import { connect } from 'react-redux';
 
@@ -20,6 +20,7 @@ class ScreenCoachSelection extends Component {
 
     return (
       <View style={Styles.container}>
+        <StatusBar backgroundColor={Styles.container.backgroundColor} barStyle='dark-content'/>
         <View style={Styles.containerMargin} />
         <View style={{ marginHorizontal: 30, flex: 0.5 }}>
           <View style={Styles.imageContainer}>

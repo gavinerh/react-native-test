@@ -1,4 +1,4 @@
-import { View, Alert, Platform } from 'react-native';
+import { View, Alert, Platform, StatusBar } from 'react-native';
 import React, { Component } from 'react';
 import { GiftedChat, Day } from 'react-native-gifted-chat'; // import { GiftedChat, LoadEarlier, Message } from 'react-native-gifted-chat'
 import PMNavigationBar from '../../Components/Navbar';
@@ -197,6 +197,7 @@ class Chat extends Component {
   render() {
     return (
       <View style={Styles.chatContainer}>
+        <StatusBar backgroundColor={Colors.navigationBar.background}/>
         <RepeatingBackgroundImage source={Images.chatBg}>
           {/* line below is the navigation bar */}
           {this.renderNavigationbar(this.props)}
